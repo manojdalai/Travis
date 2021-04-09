@@ -1,3 +1,4 @@
 print("Hello Manoj!!!")
+import os
 from os import listdir, system
-os.getcwd()
+print(os.getcwd())
