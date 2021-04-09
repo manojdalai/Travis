@@ -3,6 +3,6 @@ language: python
 python:
   - 3.7
 
-before_script:
-  - compose install --no-interaction
+script:
+  - helloworld.py
 
