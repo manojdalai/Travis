@@ -1,37 +1,36 @@
-from pyspark import SparkContext
 from pyspark.sql import SparkSession
 from pyspark.sql.types import StructType, StructField, IntegerType, StringType
 import sys
-#sc = SparkContext('local')
 
-spark = SparkSession.builder\
-    .master('local[*]')\
-    .appName('My App')\
-    .getOrCreate()
+class pysparkproject:
+    print("The script has the name %s" % (sys.argv[1]))
+    path = sys.argv[1]
 
-#spark = SparkSession(sc)
-#raw_data = spark.sparkContext.wholeTextFiles("C:\Users\pc\Downloads\dataset_one.csv")
+    schema = StructType([
+      StructField('id', IntegerType(), True),
+      StructField('first_name', StringType(), True),
+      StructField('last_name', StringType(), True),
+      StructField('email', StringType(), True),
+      StructField('country', StringType(), True)
+      ])
 
-#path = "file:///C:/Users/pc/Downloads/dataset_one.csv"
-#path = "C:\\Users\\pc\\Downloads\\dataset_one.csv"
-#url = "https://github.com/manojdalai/Travis/tree/master/input.csv/dataset_one.csv"
+    spark = SparkSession.builder\
+        .master('local[*]')\
+        .appName('My App')\
+        .getOrCreate()
 
-print("The script has the name %s" % (sys.argv[1]))
-path = sys.argv[1]
+    def load_dataframe(spark, filename):
+        raw_data1 = spark.read \
+            .format('csv') \
+            .option('header', 'true') \
+            .load(filename)
+        return raw_data1
 
-schema = StructType([
-  StructField('id', IntegerType(), True),
-  StructField('first_name', StringType(), True),
-  StructField('last_name', StringType(), True),
-  StructField('email', StringType(), True),
-  StructField('country', StringType(), True)
-  ])
+    #creating a dataframe
+    df_matches = load_dataframe(spark, path)
 
-#raw_data1 = spark.read.csv(path, header=True, mode="DROPMALFORMED", schema=schema)
+    df_matches.limit(5).show()
 
-raw_data1 = spark.read\
-    .format('csv')\
-    .option('header', 'true')\
-    .load(path)
 
-raw_data1.show()
+
+
