@@ -16,7 +16,7 @@ spark = SparkSession.builder\
 #path = "C:\\Users\\pc\\Downloads\\dataset_one.csv"
 #url = "https://github.com/manojdalai/Travis/tree/master/input.csv/dataset_one.csv"
 
-print("The script has the name %s" % (sys.argv[0])
+print("The script has the name %s" % (sys.argv[0]))
 path = sys.argv[0]
 
 schema = StructType([
