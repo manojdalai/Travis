@@ -8,7 +8,7 @@ install:
 
 script:
 #  - python helloworld.py
-  - spark-submit abnamro.py 'file:///home/travis/build/manojdalai/Travis/dataset_one.csv'
+  - spark-submit abnamro.py '/home/travis/build/manojdalai/Travis/input/dataset_one.csv'
 
 
 
