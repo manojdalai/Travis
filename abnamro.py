@@ -1,7 +1,7 @@
 from pyspark import SparkContext
 from pyspark.sql import SparkSession
 from pyspark.sql.types import StructType, StructField, IntegerType, StringType
-
+import sys
 #sc = SparkContext('local')
 
 spark = SparkSession.builder\
@@ -14,8 +14,10 @@ spark = SparkSession.builder\
 
 #path = "file:///C:/Users/pc/Downloads/dataset_one.csv"
 #path = "C:\\Users\\pc\\Downloads\\dataset_one.csv"
+#url = "https://github.com/manojdalai/Travis/tree/master/input.csv/dataset_one.csv"
 
-path = "Travis/input/nycflights13.csv"
+print("The script has the name %s" % (sys.argv[0])
+path = sys.argv[0]
 
 schema = StructType([
   StructField('id', IntegerType(), True),
