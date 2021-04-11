@@ -9,6 +9,9 @@ install:
 branches:
   only:
     - master
+
+
+
 #jobs:
 #  - include:
 #      - stages:
