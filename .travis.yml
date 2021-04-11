@@ -6,6 +6,14 @@ python:
 install:
   - pip install -r requirements.txt
 
+branches:
+  only:
+    - master
+
+
+
+
+
 #jobs:
 #  - include:
 #      - stages:
