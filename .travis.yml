@@ -4,11 +4,12 @@ python:
   - 3.7
 
 install:
+  - pip install Poetry
   - pip install -r requirements.txt
 
 script:
   #- python -m pytest
-  - python -B pytest
+  - poetry run pytest tests
 #branches:
 #  only:
 #    - master
