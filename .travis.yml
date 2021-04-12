@@ -3,16 +3,24 @@ language: python
 #python:
 #  - 3.7
 
-matrix:
+#matrix:
+#  include:
+#    - name: "Ubuntu 18.04 Bionic"
+#      os: linux
+#      dist: bionic
+#      python:
+#        - "3.7"
+
+jobs:
   include:
-    - name: "Ubuntu 18.04 Bionic"
-      os: linux
-      dist: bionic
-      python:
-        - "3.7"
+    - name: "Python 3.8.0 on Xenial Linux"
+      python: 3.7
 
 virtualenv:
   system_site_packages: true
+
+before_install:
+  - python -m pip install --upgrade pip
 
 install:
   #- pip install Poetry
