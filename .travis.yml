@@ -1,7 +1,7 @@
 language: python
 
-#python:
-#  - 3.7
+python:
+  - 3.7.5
 
 #matrix:
 #  include:
@@ -11,10 +11,10 @@ language: python
 #      python:
 #        - "3.7"
 
-jobs:
-  include:
-    - name: "Python 3.8.0 on Xenial Linux"
-      python: 3.7
+#jobs:
+#  include:
+#    - name: "Python 3.8.0 on Xenial Linux"
+#      python: 3.7
 
 #virtualenv:
 #  system_site_packages: true
