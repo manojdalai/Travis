@@ -5,7 +5,7 @@ python:
 addons:
   apt:
     packages:
-      - oracle-java8-installer
+      - oracle-java8-set-default
 #matrix:
 #  include:
 #    - name: "Ubuntu 18.04 Bionic"
