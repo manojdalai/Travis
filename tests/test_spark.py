@@ -1,11 +1,14 @@
 import pytest
-from functions import remove_non_word_characters
+#from functions import remove_non_word_characters
 from chispa import assert_column_equality
 import pyspark.sql.functions as F
 
 
 #def remove_non_word_characters(col):
 #    return F.regexp_replace(col, "[^\\w\\s]+", "")
+from ..functions import remove_non_word_characters
+
+
 
 def test_remove_non_word_characters(spark):
     data = [
