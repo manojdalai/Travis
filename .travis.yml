@@ -84,8 +84,8 @@ install:
   - poetry install -v
 
 script:
-  #- pytest --cov-report xml --cov-report term-missing --cov-append --cov tomlkit tests/
-  - pytest
+  - pytest --cov-report xml --cov-report term-missing --cov-append --cov Travis tests/
+  #- pytest
 
 jobs:
   include:
