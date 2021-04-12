@@ -2,7 +2,10 @@ language: python
 
 python:
   - 3.7.5
-
+addons:
+  apt:
+    packages:
+      - oracle-java8-installer
 #matrix:
 #  include:
 #    - name: "Ubuntu 18.04 Bionic"
