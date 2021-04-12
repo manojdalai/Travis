@@ -5,7 +5,10 @@ python:
 
 install:
   - pip install -r requirements.txt
+  - pip install -e
 
+script:
+  - pytest
 #branches:
 #  only:
 #    - master
@@ -23,10 +26,10 @@ install:
 
 #- deploy
 
-script:
+#script:
 #  - python helloworld.py
 #  - spark-submit abnamro.py 'input/dataset_one.csv'
-  - poetry run pytest 
+#  - poetry run pytest
 
 
 
