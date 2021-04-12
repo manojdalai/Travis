@@ -1,32 +1,96 @@
+#language: python
+#
+#python:
+#  - 3.7.5
+#addons:
+#  apt:
+#    packages:
+#      - oracle-java8-set-default
+##matrix:
+##  include:
+##    - name: "Ubuntu 18.04 Bionic"
+##      os: linux
+##      dist: bionic
+##      python:
+##        - "3.7"
+#
+##jobs:
+##  include:
+##    - name: "Python 3.8.0 on Xenial Linux"
+##      python: 3.7
+#
+##virtualenv:
+##  system_site_packages: true
+#
+#before_install:
+#  - python -m pip install --upgrade pip
+#  - pip install prettytable
+#  - pip install six
+#  #- poetry install
+#
+#install:
+#  #- pip install Poetry
+#  - pip install -r requirements.txt
+#  #- pip install .
+#
+#script:
+#  - pytest
+#  #- python -m pytest
+#  #- poetry run pytest tests
+##branches:
+##  only:
+##    - master
+#
+#
+#
+#
+#
+##jobs:
+##  - include:
+##      - stages:
+##          - compile
+##          - test
+##              - script
+#
+##- deploy
+#
+##script:
+##  - python helloworld.py
+##  - spark-submit abnamro.py 'input/dataset_one.csv'
+##  - poetry run pytest
+#
+#
+#
+
+
+
+dist: bionic
 language: python
 
-python:
-  - 3.7
+stages:
+  #- linting
+  - test
+
+cache:
+  pip: true
+  directories:
+    - $HOME/.cache/pypoetry
+    - $HOME/.cache/pre-commit
 
 install:
-  - pip install -r requirements.txt
-
-branches:
-  only:
-    - master
-
-
-
-
-
-#jobs:
-#  - include:
-#      - stages:
-#          - compile
-#          - test
-#              - script
-
-#- deploy
+  - curl -fsS -o get-poetry.py https://raw.githubusercontent.com/sdispater/poetry/master/get-poetry.py
+  - python get-poetry.py --preview -y
+  - source $HOME/.poetry/env
+  - poetry install -v
 
 script:
-#  - python helloworld.py
-#  - spark-submit abnamro.py 'input/dataset_one.csv'
-  - poetry run pytest 
+  - pytest --cov-report xml --cov-report term-missing --cov-append --cov Travis tests/
+  #- pytest
+
+jobs:
+  include:
+    - python: "3.7"
 
 
-
+#  allow_failures:
+#    - python: pypy3
