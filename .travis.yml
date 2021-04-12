@@ -3,14 +3,18 @@ language: python
 python:
   - 3.7
 
+virtualenv:
+  system_site_packages: true
+
 install:
-  - pip install -e .
-  - pip install Poetry
+  #- pip install Poetry
   - pip install -r requirements.txt
+  - pip install .
 
 script:
+  - pytest
   #- python -m pytest
-  - poetry run pytest tests
+  #- poetry run pytest tests
 #branches:
 #  only:
 #    - master
