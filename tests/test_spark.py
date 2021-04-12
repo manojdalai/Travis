@@ -1,6 +1,6 @@
 import pytest
 from ..functions import remove_non_word_characters
-#import pyspark.sql.functions as F
+import pyspark.sql.functions as F
 #
 #
 # #def remove_non_word_characters(col):
