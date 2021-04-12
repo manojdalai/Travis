@@ -17,7 +17,7 @@ virtualenv:
 install:
   #- pip install Poetry
   - pip install -r requirements.txt
-  - pip install .
+  #- pip install .
 
 script:
   - pytest
